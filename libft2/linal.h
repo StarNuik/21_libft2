@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:43:17 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:33:09 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/06 22:37:07 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,24 @@ typedef struct		s_quaternion
 	float			z;
 }					t_quat;
 
-
 typedef struct		s_matrix4x4
 {
 	float			value[16];
 }					t_mat4;
+
+# define VEC3_ZERO (t_vec3){0.0, 0.0, 0.0}
+# define VEC3_UP (t_vec3){0.0, 1.0, 0.0}
+# define VEC3_RIGHT (t_vec3){1.0, 0.0, 0.0}
+# define VEC3_FORWARD (t_vec3){0.0, 0.0, 1.0}
+# define VEC3_DOWN (t_vec3){0.0, -1.0, 0.0}
+# define VEC3_LEFT (t_vec3){-1.0, 0.0, 0.0}
+# define VEC3_BACKWARD (t_vec3){0.0, 0.0, -1.0}
+# define VEC3_ONE (t_vec3){1.0, 1.0, 1.0}
+# define VEC3_NEGONE (t_vec3){-1.0, -1.0, -1.0}
+# define VEC4_ZERO (t_vec3){0.0, 0.0, 0.0, 0.0}
+# define VEC4_POINT (t_vec3){0.0, 0.0, 0.0, 1.0}
+# define VEC4_ONE (t_vec3){1.0, 1.0, 1.0, 0.0}
+# define QUAT_IDENTITY (t_quat){1.0, 0.0, 0.0, 0.0}
 
 t_vec3				vec3_add(const t_vec3 left, const t_vec3 right);
 t_vec3				vec3_subtract(const t_vec3 left, const t_vec3 right);
