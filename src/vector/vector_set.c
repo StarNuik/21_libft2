@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_set.c                                          :+:      :+:    :+:   */
+/*   vector_set.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 19:00:42 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 20:52:30 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/vector.h"
 
-char		arr_set(t_array *arr, size_t index, long long value)
+void		*vector_set(t_vector *vector, const size_t index, const void *object)
 {
-	if (!arr || index >= arr->length)
-		return (0);
-	arr->field[index] = value;
-	return (1);
+	void	*old;
+	if (vector_is_empty(vector) || index >= vector->length)
+		return (NULL);
+	old = vector->memory[index];
+	vector->memory[index] = object;
+	return (old);
 }

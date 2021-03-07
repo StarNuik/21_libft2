@@ -6,23 +6,13 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 02:39:36 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 19:21:12 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 20:46:55 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft2/vector.h"
 
-char		arr_contains(t_array *arr, const long long val)
+t_bool		vector_contains(t_vector *vector, const void *object)
 {
-	size_t		qt;
-
-	if (!arr || arr->length == 0)
-		return (0);
-	qt = -1;
-	while (++qt < arr->length)
-	{
-		if (arr->field[qt] == val)
-			return (1);
-	}
-	return (0);
+	return (vector_find(vector, object) != -1);
 }

@@ -6,20 +6,20 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 07:35:12 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 19:21:17 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 20:48:39 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft2/vector.h"
 
-void	arr_iterv(t_array *arr, void *user_data,
-	void (*f)(size_t, long long, void *))
+void		vector_foreach_ptr(t_vector *vector, const void *user_data,
+	void (*f)(size_t, void *, void *))
 {
-	size_t		qt;
+	size_t	qt;
 
-	if (!arr || arr->length == 0)
+	if (vector_is_empty(vector))
 		return ;
 	qt = -1;
-	while (++qt < arr->length)
-		f(qt, arr->field[qt], user_data);
+	while (++qt < vector->length)
+		f(qt, vector->memory[qt], user_data);
 }
