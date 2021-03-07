@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_m4xv4.c                                         :+:      :+:    :+:   */
+/*   mat4_x_float.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 10:12:55 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/14 17:18:24 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 15:36:39 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-t_vector4		ft_m4xv4(t_matrix4x4 matrix, t_vector4 vector)
+t_mat4			ft_m4multnum(const t_mat4 matrix, float number)
 {
-	t_vector4		res;
-	t_matrix4x4		b;
+	t_mat4		result;
+	int			i;
 
-	b = ft_m4zero();
-	b.value[0][0] = vector.x;
-	b.value[0][1] = vector.y;
-	b.value[0][2] = vector.z;
-	b.value[0][3] = vector.w;
-	b = ft_m4multiply(matrix, b);
-	res.x = b.value[0][0];
-	res.y = b.value[0][1];
-	res.z = b.value[0][2];
-	res.w = b.value[0][3];
-	return (res);
+	i = -1;
+	while (++i < 16)
+		result.value[i] = matrix.value[i] * number;
+	return (result);
 }

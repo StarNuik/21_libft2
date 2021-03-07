@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_m4xv3.c                                         :+:      :+:    :+:   */
+/*   mat4_identity.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/18 16:36:56 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/13 09:57:49 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 15:51:00 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-t_vector3	ft_m4xv3(t_matrix4x4 matrix, t_vector3 vector)
+t_mat4			ft_m4identity(void)
 {
-	vector = ft_v4tov3(ft_m4xv4(matrix, ft_v3tov4(vector)));
-	return (vector);
+	t_mat4		result;
+
+	result = mat4_zero();
+	result.value[0] = 1;
+	result.value[5] = 1;
+	result.value[10] = 1;
+	result.value[15] = 1;
+	return (result);
 }

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   mat4_x_vec3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 21:43:06 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 15:57:43 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/06/18 16:36:56 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 15:38:31 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_vec3		ft_m4xv3(const t_mat4 matrix, const t_vec3 vector)
 {
-	if (n < 0)
-		ft_putchar_fd('-', fd);
-	if (n > 9 || n < -9)
-		ft_putnbr_fd(ft_absi(n / 10), fd);
-	ft_putchar_fd(ft_absi(n % 10) + '0', fd);
+	t_vec3	result;
+	
+	result = vec4_to_vec3(mat4_x_vec4(matrix, vec3_to_vec4(vector)));
+	return (result);
 }

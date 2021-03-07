@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:43:17 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:37:07 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 15:37:40 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,20 @@ t_vec3				vec3_abs(const t_vec3 vector);
 float				vec3_length(const t_vec3 vector);
 float				vec3_dot(const t_vec3 left, const t_vec3 right);
 float				vec3_dot2(const t_vec3 vector);
+
 t_vec4				vec3_to_vec4(const t_vec3 vector);
 t_vec4				vec3_to_vec4_point(const t_vec3 vector);
+t_vec3				vec4_to_vec3(const t_vec4 vector);
 
-t_vec3				vec4_to_v3(const t_vec4 vector);
-
-t_vec4				mat4_x_vec4(const t_mat4 matrix, const t_vec4 vector);
-t_vec3				mat4_x_vec3(const t_mat4 matrix, const t_vec3 vector);
-t_mat4				mat4_zero(void);
-t_mat4				mat4_identity(void);
-t_mat4				mat4_transpose(const t_mat4 matrix);
-t_mat4				mat4_multiply(const t_mat4 left, const t_mat4 right);
-t_mat4				mat4_mult_num(const t_mat4 matrix, const float number);
-t_mat4				mat4_invert(const t_mat4 matrix);
 float				mat4_determinant(const t_mat4 matrix);
+t_mat4				mat4_identity(void);
+t_mat4				mat4_invert(const t_mat4 matrix);
+t_mat4				mat4_multiply(const t_mat4 left, const t_mat4 right);
+t_mat4				mat4_transpose(const t_mat4 matrix);
+t_mat4				mat4_x_float(const t_mat4 matrix, const float number);
+t_vec3				mat4_x_vec3(const t_mat4 matrix, const t_vec3 vector);
+t_vec4				mat4_x_vec4(const t_mat4 matrix, const t_vec4 vector);
+t_mat4				mat4_zero(void);
 
 t_mat4				quat_rotation_matrix(const t_quat quaternion);
 t_quat				quat_multiply(const t_quat left, const t_quat right);

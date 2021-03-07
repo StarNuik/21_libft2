@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   mat4_zero.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/20 15:30:44 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/13 09:55:10 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 15:50:34 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-int		ft_sqrt(unsigned int num)
+t_mat4			ft_m4zero(void)
 {
-	int		qt;
+	t_mat4		result;
 
-	qt = 0;
-	while (ft_power(qt) < num)
-		qt++;
-	return (qt);
+	ft_bzero(result.value, sizeof(float) * 16);
+	return (result);
 }

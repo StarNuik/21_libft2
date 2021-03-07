@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:09:57 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:34:07 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 15:52:13 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <fcntl.h>
-# include <math.h>
 
 # define L_MAX (9223372036854775807L)
 # define L_MIN (-9223372036854775808L)
@@ -25,14 +24,6 @@
 # define I_MAX (2147483647)
 # define I_MIN (-2147483648)
 # define UI_MAX (4294967295)
-# define D_PI (3.14159265358979323846264338327950288)
-# define D_RAD2DEG (180.0 / D_PI)
-# define D_DEG2RAD (D_PI / 180.0)
-# define PI (3.14159265F)
-# define RAD2DEG (180.0F / PI)
-# define DEG2RAD (PI / 180.0F)
-
-# define BUFF_SIZE (1024)
 
 typedef char t_bool;
 
@@ -95,10 +86,7 @@ void				ft_putchar_fd(char chr, int fd);
 void				ft_putstr_fd(const char *string, int fd);
 void				ft_putendl_fd(char const *string, int fd);
 void				ft_putnbr_fd(int num, int fd);
-unsigned int		ft_power(int num);
-unsigned long		ft_powerl(long num);
-int					ft_sqrt(unsigned int num);
-int					ft_abs(int input);
+
 void				*ft_realloc(void *source, size_t src_size,
 	size_t new_size);
 void				ft_putmem(void *ptr, size_t var_size, size_t len,
@@ -109,8 +97,8 @@ void				ft_puthexbyte(unsigned char c);
 void				ft_puthex(void *ptr, size_t var_size, size_t len,
 	size_t indent);
 void				ft_swap(int *a, int *b);
-long long			ft_clamp(long long value, long long min, long long max);
-double				ft_clampd(double value, double min, double max);
 void				ft_swapd(double *a, double *b);
+void				ft_swapf(float *a, float *b);
+int					ft_absi(int number);
 
 #endif
