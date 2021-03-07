@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_iterv.c                                        :+:      :+:    :+:   */
+/*   vector_reserve.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/07 07:35:12 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/01 14:06:01 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 20:24:39 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/vector.h"
 
-void	arr_iterv(t_array *arr, void *user_data,
-	void (*f)(size_t, long long, void *))
+t_bool		vector_reserve(t_vector *vector, const size_t length)
 {
-	size_t		qt;
+	size_t	new_size;
+	void	*new_ptr;
 
-	if (!arr || arr->length == 0)
-		return ;
-	qt = -1;
-	while (++qt < arr->length)
-		f(qt, arr->field[qt], user_data);
+	if (!vector)
+		return (FALSE);
+	new_size = SIZEOF * length;
+	if (new_size <= vector->mem_size)
+		return (TRUE);
+	new_ptr = ft_realloc(vector->memory, vector->mem_size, new_size);
+	if (!new_ptr)
+		return (FALSE);
+	vector->memory = new_ptr;
+	vector->mem_size = new_size;
+	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 22:20:29 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:16 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 20:43:24 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,55 @@
 
 # include "base.h"
 
+# define START_LENGTH (4)
+# define SIZEOF (sizeof(void *))
+
 typedef struct		s_vector
 {
-	void			*field;
+	void			*memory;
 	size_t			length;
 	size_t			mem_size;
 }					t_vector;
 
+//* new
 t_vector			*vector_new(void);
-t_bool				vector_sizeup(const t_vector *vector);
-t_bool				vector_push(const t_vector *vector, void *num);
-t_bool				vector_unshift(const t_vector *vector, void *num);
-t_bool				vector_set(const t_vector *vector, size_t index, void *value);
-size_t				vector_length(const t_vector *vector);
-void				*vector_pop(const t_vector *vector);
-void				*vector_shift(const t_vector *vector);
-t_bool				vector_contains(const t_vector *vector, void *val);
-void				*vector_get(const t_vector *vector, size_t index);
-void				*vector_top(const t_vector *vector);
-void				*vector_last(const t_vector *vector);
-void				vector_iter(const t_vector *vector, void (*f)(size_t, void *));
-void				vector_iterv(const t_vector *vector, void *user_data, void (*f)(size_t, void *, void *));
-void				vector_itervv(const t_vector *arr, void *user_data1, void *user_data2, void (*f)(size_t, void *, void *, void *));
-void				*vector_drop(const t_vector *vector, size_t index);
-size_t				vector_find(const t_vector *vector, void *target);
-void				*vector_find_destroy(const t_vector *arr, void *target);
-t_bool				vector_absorb(const t_vector *vector, void **source, size_t ammount);
-t_bool				vector_rabsorb(const t_vector *vector, void **source, size_t ammount);
-t_bool				vector_topsorb(const t_vector *vector, void **source, size_t ammount);
-t_bool				vector_rtopsorb(const t_vector *vector, void **source, size_t ammount);
-t_vector			*vector_start(void **source, size_t ammount);
-void				vector_clear(const t_vector *arr);
-void				vector_delete(const t_vector *vector);
+t_vector			*vector_from_array(const void *source, const size_t length);
+t_bool				vector_reserve(t_vector *vector, const size_t length);
+t_bool				vector_expand(t_vector *vector);
+
+//* Create
+t_bool				vector_push_back(t_vector *vector, const void *object);
+t_bool				vector_push_front(t_vector *vector, const void *object);
+t_bool				vector_insert(t_vector *vector, const void *object, const size_t index);
+
+//* Read
+void				*vector_top(t_vector *vector);
+void				*vector_last(t_vector *vector);
+void				*vector_at(t_vector *vector, const size_t index);
+
+t_bool				vector_is_full(t_vector *vector);
+t_bool				vector_is_empty(t_vector *vector);
+//! finished here
+
+size_t				vector_find(t_vector *vector, const void *object);
+t_bool				vector_contains(t_vector *vector, const void *val);
+
+void				vector_foreach(t_vector *vector, void (*f)(size_t, void *));
+void				vector_foreach_ptr(t_vector *vector, void *ptr, void (*f)(size_t, void *, void *));
+
+//* Update
+t_bool				vector_set(t_vector *vector, const size_t index, const void *object);
+
+//* Delete
+void				*vector_pop(t_vector *vector);
+void				*vector_shift(t_vector *vector);
+t_bool				vector_remove(t_vector *vector, const void *object);
+// t_bool				vector_remove_
+void				*vector_remove_at(t_vector *vector, const size_t index);
+
+//* delete
+t_bool				vector_shrink_to_fit(t_vector *vector);
+void				vector_clear(t_vector *vector);
+void				vector_delete(t_vector *vector);
 
 #endif

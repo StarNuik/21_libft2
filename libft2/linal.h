@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:43:17 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 18:27:41 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 18:33:07 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,14 @@ t_vec3				mat4_x_vec3(const t_mat4 matrix, const t_vec3 vector);
 t_vec4				mat4_x_vec4(const t_mat4 matrix, const t_vec4 vector);
 t_mat4				mat4_zero(void);
 
-t_mat4				quat_rotation_matrix(const t_quat quaternion);
-t_quat				quat_multiply(const t_quat left, const t_quat right);
-t_quat				quat_rotate_around(const t_vec3 axis, const float degrees);
 t_quat				quat_from_euler(const t_vec3 euler_degrees);
 t_quat				quat_invert(const t_quat quaternion);
-t_quat				quat_look_rotation(const t_vec3 forward, const t_vec3 upward);
 t_quat				quat_lerp(const t_quat from, const t_quat to, const float f);
-t_vec3				quat_x_vec3(const t_quat quaternion, const t_vec3 vector);
+t_quat				quat_look_rotation(const t_vec3 forward, const t_vec3 upward);
+t_quat				quat_multiply(const t_quat left, const t_quat right);
+t_quat				quat_rotate_around(const t_vec3 axis, const float degrees);
+t_mat4				quat_rotation_matrix(const t_quat quaternion);
 t_vec3				quat_to_euler();
+t_vec3				quat_x_vec3(const t_quat quaternion, const t_vec3 vector);
 
 #endif

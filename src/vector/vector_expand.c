@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_find.c                                         :+:      :+:    :+:   */
+/*   vector_expand.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 02:09:23 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2021/03/07 20:17:05 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 20:23:09 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/vector.h"
 
-size_t		arr_find(t_array *arr, long long target)
+t_bool		vector_expand(t_vector *vector)
 {
-	size_t		qt;
+	size_t new_length;
 
-	if (!arr || arr->length == 0)
-		return (-1);
-	qt = -1;
-	while (++qt < arr->length)
-		if (arr->field[qt] == target)
-			return (qt);
-	return (-1);
+	if (!vector)
+		return (FALSE);
+	new_length = vector->mem_size / SIZEOF * 2;
+	if (vector->mem_size == 0)
+		new_length = START_LENGTH;
+	return (vector_reserve(vector, new_length));
 }

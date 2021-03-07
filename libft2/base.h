@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:09:57 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 15:52:13 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 19:29:51 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define I_MAX (2147483647)
 # define I_MIN (-2147483648)
 # define UI_MAX (4294967295)
+# define FALSE ((t_bool)0)
+# define TRUE ((t_bool)1)
 
 typedef char t_bool;
 

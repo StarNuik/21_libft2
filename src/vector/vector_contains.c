@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_push.c                                         :+:      :+:    :+:   */
+/*   vector_contains.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 14:11:10 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:38 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/07/08 02:39:36 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 19:21:12 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/vector.h"
 
-char		arr_push(t_array *arr, long long num)
+char		arr_contains(t_array *arr, const long long val)
 {
-	if (!arr)
+	size_t		qt;
+
+	if (!arr || arr->length == 0)
 		return (0);
-	if (arr->length * sizeof(long long) == arr->mem_size)
-		if (!arr_sizeup(arr))
-			return (0);
-	if (!arr)
-		return (0);
-	arr->field[arr->length] = num;
-	arr->length++;
-	return (1);
+	qt = -1;
+	while (++qt < arr->length)
+	{
+		if (arr->field[qt] == val)
+			return (1);
+	}
+	return (0);
 }

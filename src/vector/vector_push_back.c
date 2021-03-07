@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_drop.c                                         :+:      :+:    :+:   */
+/*   vector_push_back.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 23:51:14 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/01 14:11:10 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 20:28:53 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/vector.h"
 
-long long		arr_drop(t_array *arr, size_t index)
+t_bool		vector_push_back(t_vector *vector, const void *object)
 {
-	long long		res;
-
-	if (!arr || arr->length == 0 || index >= arr->length)
-		return (0);
-	res = arr->field[index];
-	arr->field[index] = 0;
-	arr->length--;
-	if (arr->length != index)
-		ft_memmove(arr->field + index, arr->field + index + 1,
-			(arr->length - index) * sizeof(long long));
-	return (res);
+	if (!vector || !object)
+		return (FALSE);
+	if (vector_is_full(vector))
+		if (!vector_expand(vector))
+			return (FALSE);
+	vector->memory[vector->length] = object;
+	vector->length++;
+	return (TRUE);
 }

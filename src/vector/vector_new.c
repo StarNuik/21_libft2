@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_contains.c                                     :+:      :+:    :+:   */
+/*   vector_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 02:39:36 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/01 14:05:14 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 20:22:40 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/vector.h"
 
-char		arr_contains(t_array *arr, const long long val)
+t_vector		*vector_new(void)
 {
-	size_t		qt;
+	t_vector	*result;
 
-	if (!arr || arr->length == 0)
-		return (0);
-	qt = -1;
-	while (++qt < arr->length)
+	result = ft_memalloc(sizeof(t_vector));
+	if (!result)
+		return (NULL);
+	result.length = 0;
+	if (!vector_expand(vector))
 	{
-		if (arr->field[qt] == val)
-			return (1);
+		vector_delete(vector);
+		return (NULL);
 	}
-	return (0);
+	return (result);
 }

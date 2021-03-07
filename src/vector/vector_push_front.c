@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_start.c                                        :+:      :+:    :+:   */
+/*   vector_push_front.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 14:16:19 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/01 14:11:25 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 20:36:34 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/vector.h"
 
-t_array		*arr_start(long long *ptr, size_t ammount)
+t_bool		vector_push_front(t_vector *vector, void *object)
 {
-	t_array		*arr;
-
-	arr = arr_init();
-	if (!arr)
-		return (NULL);
-	if (!arr_absorb(arr, ptr, ammount))
-	{
-		arr_destroy(arr);
-		return (NULL);
-	}
-	return (arr);
+	return (vector_insert(vector, object, 0));
 }

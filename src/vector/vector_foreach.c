@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_init.c                                         :+:      :+:    :+:   */
+/*   vector_foreach.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 14:05:14 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/07/05 00:22:39 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 19:21:19 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/vector.h"
 
-t_array		*arr_init(void)
+void	arr_iter(t_array *arr, void (*f)(size_t, long long))
 {
-	t_array		*res;
+	size_t		qt;
 
-	res = (t_array*)malloc(sizeof(t_array));
-	if (!res)
-		return (NULL);
-	res->field = NULL;
-	res->mem_size = 0;
-	res->length = 0;
-	if (!arr_sizeup(res))
-	{
-		free(res);
-		return (NULL);
-	}
-	return (res);
+	if (!arr || arr->length == 0)
+		return ;
+	qt = -1;
+	while (++qt < arr->length)
+		f(qt, arr->field[qt]);
 }
