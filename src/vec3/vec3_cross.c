@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_v3multnum.c                                     :+:      :+:    :+:   */
+/*   vec3_cross.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 10:30:03 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/13 10:47:06 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 18:18:19 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-t_vector3	ft_v3multnum(t_vector3 a, double b)
+t_vec3		vec3_cross(const t_vec3 left, const t_vec3 right)
 {
-	t_vector3	res;
+	t_vec3	result;
 
-	res.x = a.x * b;
-	res.y = a.y * b;
-	res.z = a.z * b;
-	return (res);
+	result.x = left.y * right.z - left.z * right.y;
+	result.y = left.z * right.x - left.x * right.z;
+	result.z = left.x * right.y - left.y * right.x;
+	return (result);
 }

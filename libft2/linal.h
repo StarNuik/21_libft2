@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:43:17 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 16:55:36 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 18:27:41 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,22 +58,19 @@ typedef struct		s_matrix4x4
 # define VEC4_ONE (t_vec3){1.0f, 1.0f, 1.0f, 0.0f}
 # define QUAT_IDENTITY (t_quat){1.0f, 0.0f, 0.0f, 0.0f}
 
-t_vec3				vec3_add(const t_vec3 left, const t_vec3 right);
-t_vec3				vec3_subtract(const t_vec3 left, const t_vec3 right);
-t_vec3				vec3_multiply(const t_vec3 vector, const float number);
-t_vec3				vec3_divide(const t_vec3 vector, const float number);
-t_vec3				vec3_normalize(const t_vec3 vector);
-t_vec3				vec3_cross(const t_vec3 left, const t_vec3 right);
-t_vec3				vec3_invert(const t_vec3 vector);
-t_vec3				vec3_rotate(const t_vec3 vector, const t_quat rotation);
-t_vec3				vec3_euleur(const t_vec3 vector, const float degrees_x, const float degrees_y, const float degrees_z);
 t_vec3				vec3_abs(const t_vec3 vector);
-float				vec3_length(const t_vec3 vector);
+t_vec3				vec3_add(const t_vec3 left, const t_vec3 right);
+t_vec3				vec3_cross(const t_vec3 left, const t_vec3 right);
 float				vec3_dot(const t_vec3 left, const t_vec3 right);
 float				vec3_dot2(const t_vec3 vector);
-
+t_vec3				vec3_invert(const t_vec3 vector);
+float				vec3_length(const t_vec3 vector);
+t_vec3				vec3_normalize(const t_vec3 vector);
+t_vec3				vec3_subtract(const t_vec3 left, const t_vec3 right);
 t_vec4				vec3_to_vec4(const t_vec3 vector);
 t_vec4				vec3_to_vec4_point(const t_vec3 vector);
+t_vec3				vec3_x_float(const t_vec3 vector, const float number);
+
 t_vec3				vec4_to_vec3(const t_vec4 vector);
 
 float				mat4_determinant(const t_mat4 matrix);

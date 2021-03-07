@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_v3abs.c                                         :+:      :+:    :+:   */
+/*   vec4_to_vec3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/18 19:58:06 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/06/18 16:31:32 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 18:28:48 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-t_vector3	ft_v3abs(t_vector3 a)
+t_vec3		vec4_to_vec3(t_vec4 vec)
 {
-	a = (t_vector3){fabs(a.x), fabs(a.y), fabs(a.z)};
-	return (a);
+	return ((t_vec3){vec.x, vec.y, vec.z});
 }

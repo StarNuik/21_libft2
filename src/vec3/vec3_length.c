@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_v3subtract.c                                    :+:      :+:    :+:   */
+/*   vec3_length.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 10:29:38 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/13 10:33:58 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 18:21:49 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-t_vector3	ft_v3subtract(t_vector3 a, t_vector3 b)
+float		vec3_length(const t_vec3 vec)
 {
-	t_vector3	res;
-
-	res.x = a.x - b.x;
-	res.y = a.y - b.y;
-	res.z = a.z - b.z;
-	return (res);
+	return (sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z));
 }

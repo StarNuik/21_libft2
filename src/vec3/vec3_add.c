@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_v3tov4point.c                                   :+:      :+:    :+:   */
+/*   vec3_add.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/18 16:34:45 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:38 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/13 10:28:23 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 18:18:15 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-t_vector4	ft_v3tov4point(t_vector3 a)
+t_vec3		vec3_add(const t_vec3 left, const t_vec3 right)
 {
-	t_vector4	res;
+	t_vec3	result;
 
-	res.x = a.x;
-	res.y = a.y;
-	res.z = a.z;
-	res.w = 1.0;
-	return (res);
+	result.x = left.x + right.x;
+	result.y = left.y + right.y;
+	result.z = left.z + right.z;
+	return (result);
 }

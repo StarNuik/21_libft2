@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_v3euleur.c                                      :+:      :+:    :+:   */
+/*   vec3_subtract.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/18 16:44:19 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/13 10:29:38 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 18:26:11 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-t_vector3	ft_v3euleur(t_vector3 vector,
-	double degrees_x, double degrees_y, double degrees_z)
+t_vec3		vec3_subtract(const t_vec3 left, const t_vec3 right)
 {
-	t_ernion	rot;
+	t_vec3	result;
 
-	rot = ft_queuler(degrees_x, degrees_y, degrees_z);
-	vector = ft_v3rotate(vector, rot);
-	return (vector);
+	result.x = left.x - right.x;
+	result.y = left.y - right.y;
+	result.z = left.z - right.z;
+	return (result);
 }

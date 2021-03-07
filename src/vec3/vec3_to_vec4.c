@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_v3divnum.c                                      :+:      :+:    :+:   */
+/*   vec3_to_vec4.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 10:30:39 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/06/18 16:33:20 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 18:26:02 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-t_vector3	ft_v3divnum(t_vector3 a, double b)
+t_vec4		vec3_to_vec4(const t_vec3 vec)
 {
-	t_vector3	res;
-
-	res.x = a.x / b;
-	res.y = a.y / b;
-	res.z = a.z / b;
-	return (res);
+	return ((t_vec4){vec.x, vec.y, vec.z, 0.0f});
 }
