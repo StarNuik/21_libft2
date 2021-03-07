@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   quat_look_rotation.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 20:22:32 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:30:40 by sbosmer          ###   ########.fr       */
+/*   Created: 2021/03/07 16:49:16 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 16:54:37 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-int			ft_abs(int input)
+t_quat		quat_look_rotation(const t_vec3 forward, const t_vec3 upward)
 {
-	if (input == I_MIN)
-		return (I_MAX);
-	return (input < 0 ? -input : input);
+	t_vec3	temp;
+	t_quat	result;
+	float 	l0;
+	float 	l1;
+
+	temp = vec3_cross(forward, upward);
+	result = (t_quat){0.0f, temp.x, temp.y, temp.z};
+	l0 = vec3_length(forward);
+	l1 = vec3_length(upward);
+	result.w = sqrtf(l0 * l0 * l1 * l1) + vec3_dot(forward, upward);
+	return (result);
 }

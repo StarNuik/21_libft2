@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clamp.c                                         :+:      :+:    :+:   */
+/*   quat_to_euler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/02 21:22:58 by sbosmer           #+#    #+#             */
-/*   Updated: 2019/05/02 21:33:45 by sbosmer          ###   ########.fr       */
+/*   Created: 2021/03/07 16:32:13 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 16:49:03 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long long	ft_clamp(long long value, long long min, long long max)
+#include "libft2/linal.h"
+
+t_vec3		quat_to_euler(const t_quat q)
 {
-	if (value < min)
-		return (min);
-	if (value > max)
-		return (max);
-	return (value);
+	t_vec3	result;
+
+	result.x = atan2f(2.0f * (q.w * q.x + q.y * q.z),
+		1.0f - 2.0f * (q.x * q.x + q.y * q.y));
+	result.y = asinf(2.0f * (q.w * q.y - q.z * q.w));
+	result.z = atan2f(2.0f * (q.w * q.z + q.x * q.y),
+		1.0f - 2.0f * (q.y * q.y + q.z * q.z));
+	return (result);
 }

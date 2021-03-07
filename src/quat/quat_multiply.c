@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_qumultiply.c                                    :+:      :+:    :+:   */
+/*   quat_multiply.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 09:19:08 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 16:36:32 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-t_ernion	ft_qumultiply(t_ernion first, t_ernion second)
+t_quat		quat_multiply(const t_quat left, const t_quat right)
 {
-	t_ernion	res;
+	t_quat	result;
 
-	res.w = first.w * second.w - first.x * second.x -
-			first.y * second.y - first.z * second.z;
-	res.x = first.w * second.x + first.x * second.w +
-			first.y * second.z - first.z * second.y;
-	res.y = first.w * second.y - first.x * second.z +
-			first.y * second.w + first.z * second.x;
-	res.z = first.w * second.z + first.x * second.y -
-			first.y * second.x + first.z * second.w;
-	return (res);
+	result.w = left.w * right.w - left.x * right.x -
+		left.y * right.y - left.z * right.z;
+	result.x = left.w * right.x + left.x * right.w +
+		left.y * right.z - left.z * right.y;
+	result.y = left.w * right.y - left.x * right.z +
+		left.y * right.w + left.z * right.x;
+	result.z = left.w * right.z + left.x * right.y -
+		left.y * right.x + left.z * right.w;
+	return (result);
 }

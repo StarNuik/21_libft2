@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_powerl.c                                        :+:      :+:    :+:   */
+/*   quat_rotate_around.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/20 15:03:54 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/05/13 09:22:00 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/07 16:54:51 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/linal.h"
 
-unsigned long	ft_powerl(long num)
+t_quat		quat_rotate_around(const t_vec3 axis, const float degrees)
 {
-	unsigned long	temp;
+	t_quat	result;
+	float	radians;
 
-	temp = ((num < 0) ? -(num) : (num));
-	if (temp > UI_MAX + 1)
-		return (0);
-	return (temp * temp);
+	radians = degrees * DEG2RAD;
+	result.w = cosf(radians / 2.0f);
+	result.x = axis.x * sinf(radians / 2.0f);
+	result.y = axis.y * sinf(radians / 2.0f);
+	result.z = axis.z * sinf(radians / 2.0f);
+	return (result);
 }

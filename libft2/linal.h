@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:43:17 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 15:37:40 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/07 16:55:36 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT2_LINAL_H
 
 # include "base.h"
+# include "math.h"
 
 typedef struct		s_vector3f
 {
@@ -43,19 +44,19 @@ typedef struct		s_matrix4x4
 	float			value[16];
 }					t_mat4;
 
-# define VEC3_ZERO (t_vec3){0.0, 0.0, 0.0}
-# define VEC3_UP (t_vec3){0.0, 1.0, 0.0}
-# define VEC3_RIGHT (t_vec3){1.0, 0.0, 0.0}
-# define VEC3_FORWARD (t_vec3){0.0, 0.0, 1.0}
-# define VEC3_DOWN (t_vec3){0.0, -1.0, 0.0}
-# define VEC3_LEFT (t_vec3){-1.0, 0.0, 0.0}
-# define VEC3_BACKWARD (t_vec3){0.0, 0.0, -1.0}
-# define VEC3_ONE (t_vec3){1.0, 1.0, 1.0}
-# define VEC3_NEGONE (t_vec3){-1.0, -1.0, -1.0}
-# define VEC4_ZERO (t_vec3){0.0, 0.0, 0.0, 0.0}
-# define VEC4_POINT (t_vec3){0.0, 0.0, 0.0, 1.0}
-# define VEC4_ONE (t_vec3){1.0, 1.0, 1.0, 0.0}
-# define QUAT_IDENTITY (t_quat){1.0, 0.0, 0.0, 0.0}
+# define VEC3_ZERO (t_vec3){0.0f, 0.0f, 0.0f}
+# define VEC3_UP (t_vec3){0.0f, 1.0f, 0.0f}
+# define VEC3_RIGHT (t_vec3){1.0f, 0.0f, 0.0f}
+# define VEC3_FORWARD (t_vec3){0.0f, 0.0f, 1.0f}
+# define VEC3_DOWN (t_vec3){0.0f, -1.0f, 0.0f}
+# define VEC3_LEFT (t_vec3){-1.0f, 0.0f, 0.0f}
+# define VEC3_BACKWARD (t_vec3){0.0f, 0.0f, -1.0f}
+# define VEC3_ONE (t_vec3){1.0f, 1.0f, 1.0f}
+# define VEC3_NEGONE (t_vec3){-1.0f, -1.0f, -1.0f}
+# define VEC4_ZERO (t_vec3){0.0f, 0.0f, 0.0f, 0.0f}
+# define VEC4_POINT (t_vec3){0.0f, 0.0f, 0.0f, 1.0f}
+# define VEC4_ONE (t_vec3){1.0f, 1.0f, 1.0f, 0.0f}
+# define QUAT_IDENTITY (t_quat){1.0f, 0.0f, 0.0f, 0.0f}
 
 t_vec3				vec3_add(const t_vec3 left, const t_vec3 right);
 t_vec3				vec3_subtract(const t_vec3 left, const t_vec3 right);
@@ -88,7 +89,11 @@ t_mat4				mat4_zero(void);
 t_mat4				quat_rotation_matrix(const t_quat quaternion);
 t_quat				quat_multiply(const t_quat left, const t_quat right);
 t_quat				quat_rotate_around(const t_vec3 axis, const float degrees);
-t_quat				quat_from_euler(const float degrees_x, const float degrees_y, const float degrees_z);
+t_quat				quat_from_euler(const t_vec3 euler_degrees);
 t_quat				quat_invert(const t_quat quaternion);
+t_quat				quat_look_rotation(const t_vec3 forward, const t_vec3 upward);
+t_quat				quat_lerp(const t_quat from, const t_quat to, const float f);
+t_vec3				quat_x_vec3(const t_quat quaternion, const t_vec3 vector);
+t_vec3				quat_to_euler();
 
 #endif
