@@ -18,6 +18,7 @@ all: $(NAME)
 -include $(DEPS)
 
 %.o: %.c
+	@echo "F: $<"
 	@gcc $(FLAGS) -MMD -MP -c $< -o $@ $(INCL)
 
 $(NAME): $(OBJS)

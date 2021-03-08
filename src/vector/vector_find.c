@@ -6,13 +6,13 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 02:09:23 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/08 17:06:12 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 17:21:28 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft2/vector.h"
 
-size_t		vector_find(t_vector *vector, const void *object)
+size_t		vector_find(t_vector *vector, void *object)
 {
 	size_t		qt;
 
