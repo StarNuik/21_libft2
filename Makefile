@@ -5,11 +5,12 @@ SRCS += $(wildcard src/string/*.c)
 SRCS += $(wildcard src/vec3/*.c)
 SRCS += $(wildcard src/vec4/*.c)
 SRCS += $(wildcard src/vector/*.c)
+SRCS += $(wildcard src/math/*.c)
 
 OBJS = $(SRCS:.c=.o)
 DEPS = $(SRCS:.c=.d)
 FLAGS = -Wall -Wextra -Werror
-NAME = libft.a
+NAME = libft2.a
 
 INCL += -I .
 
