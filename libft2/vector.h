@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 22:20:29 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/08 17:24:08 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 17:33:10 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,5 @@ void				vector_clear(t_vector *vector);
 void				vector_clear_free(t_vector *vector);
 void				*vector_delete(t_vector *vector);
 void				*vector_delete_free(t_vector *vector);
-
-void				__free_element(const size_t index, void *object);
 
 #endif

@@ -6,13 +6,14 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 10:00:15 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 15:19:35 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 17:30:06 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft2/linal.h"
 
-static float	count_elem(const float *a, const float *b, const int x, const int y)
+static float	count_elem(const float *a, const float *b,
+	const int x, const int y)
 {
 	float		res;
 
@@ -23,7 +24,7 @@ static float	count_elem(const float *a, const float *b, const int x, const int y
 	return (res);
 }
 
-t_mat4			ft_m4multiply(const t_mat4 left, const t_mat4 right)
+t_mat4			mat4_multiply(const t_mat4 left, const t_mat4 right)
 {
 	t_mat4		result;
 

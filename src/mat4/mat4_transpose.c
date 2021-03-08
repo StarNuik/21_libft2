@@ -6,13 +6,13 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 16:07:38 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 15:34:51 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 17:29:10 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft2/linal.h"
 
-t_mat4			ft_m4transpose(const t_mat4 a)
+t_mat4			mat4_transpose(const t_mat4 a)
 {
 	t_mat4		res;
 

@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 10:02:37 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 15:12:26 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 17:29:02 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	part1(const float *m, float *inv)
 		m[8] * m[1] * m[6] - m[8] * m[2] * m[5];
 }
 
-t_mat4		mat4_inverse(const t_mat4 matrix)
+t_mat4		mat4_invert(const t_mat4 matrix)
 {
 	t_mat4	inverse;
 	float	determinant;

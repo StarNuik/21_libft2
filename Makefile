@@ -27,6 +27,7 @@ $(NAME): $(OBJS)
 
 clean:
 	@rm -f $(OBJS)
+	@rm -f $(DEPS)
 
 fclean: clean
 	@rm -f $(NAME)
