@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 14:11:25 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/08 17:19:28 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 17:35:39 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ t_bool		vector_insert(t_vector *vector, void *object, const size_t index)
 		if (!vector_expand(vector))
 			return (FALSE);
 	if (index != vector->length)
-		ft_memmove(vector->memory + 1 + index, vector->memory + index, SIZEOF * (vector->length - index));
+		ft_memmove(vector->memory + 1 + index,
+			vector->memory + index,
+			SIZEOF * (vector->length - index));
 	vector->memory[index] = object;
 	vector->length++;
 	return (TRUE);
