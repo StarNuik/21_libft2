@@ -6,13 +6,13 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 00:22:39 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 20:47:42 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 16:49:52 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft2/vector.h"
 
-void		vector_foreach(t_vector *vector, void (*f)(size_t, long long))
+void		vector_foreach(t_vector *vector, void (*f)(size_t, void *))
 {
 	size_t	qt;
 

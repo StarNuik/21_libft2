@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 14:05:14 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 20:22:40 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 17:00:37 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ t_vector		*vector_new(void)
 	result = ft_memalloc(sizeof(t_vector));
 	if (!result)
 		return (NULL);
-	result.length = 0;
-	if (!vector_expand(vector))
+	result->length = 0;
+	if (!vector_expand(result))
 	{
-		vector_delete(vector);
+		vector_delete(result);
 		return (NULL);
 	}
 	return (result);

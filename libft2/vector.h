@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 22:20:29 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 20:52:36 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 17:13:41 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct		s_vector
 {
-	void			*memory;
+	void			**memory;
 	size_t			length;
 	size_t			mem_size;
 }					t_vector;
@@ -52,7 +52,6 @@ void				vector_foreach_ptr(t_vector *vector, void *ptr, void (*f)(size_t, void *
 
 //* Update
 void				*vector_set(t_vector *vector, const size_t index, const void *object);
-//! finished here
 
 //* Delete
 void				*vector_pop(t_vector *vector);
@@ -60,13 +59,15 @@ void				*vector_shift(t_vector *vector);
 t_bool				vector_remove(t_vector *vector, const void *object);
 t_bool				vector_remove_free(t_vector *vector, const void *object);
 void				*vector_remove_at(t_vector *vector, const size_t index);
-void				*vector_remove_at_free(t_vector *vector, const size_t index);
+void				vector_remove_at_free(t_vector *vector, const size_t index);
 
 //* delete
 t_bool				vector_shrink_to_fit(t_vector *vector);
 void				vector_clear(t_vector *vector);
 void				vector_clear_free(t_vector *vector);
-void				vector_delete(t_vector *vector);
-void				vector_delete_free(t_vector *vector);
+void				*vector_delete(t_vector *vector);
+void				*vector_delete_free(t_vector *vector);
+
+void				__free_element(const size_t index, const void *object);
 
 #endif

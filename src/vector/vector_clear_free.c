@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_delete.c                                    :+:      :+:    :+:   */
+/*   vector_clear_free.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 14:05:42 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/08 16:47:14 by sbosmer          ###   ########.fr       */
+/*   Created: 2019/07/08 03:12:58 by sbosmer           #+#    #+#             */
+/*   Updated: 2021/03/08 17:12:14 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft2/vector.h"
 
-void		*vector_delete(t_vector *vector)
+void	vector_clear_free(t_vector *vector)
 {
-	if (!vector)
-		return (NULL);
-	free(vector->memory);
-	free(vector);
-	return (NULL);
+	if (vector_is_empty(vector))
+		return;
+	vector_foreach(vector, __free_element);
+	vector_clear(vector);
 }

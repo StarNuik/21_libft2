@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_shift.c                                        :+:      :+:    :+:   */
+/*   vector_shift.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 14:14:29 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 16:43:32 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/vector.h"
 
-long long	arr_shift(t_array *arr)
+void		*vector_shift(t_vector *vector)
 {
-	long long	res;
+	void	*result;
 
-	if (!arr || arr->length == 0)
-		return (0);
-	res = arr->field[0];
-	arr->field[0] = 0;
-	arr->length--;
-	if (arr->length)
-		ft_memmove(arr->field, arr->field + 1, arr->length * sizeof(long long));
-	return (res);
+	if (vector_is_empty(vector))
+		return (NULL);
+	result = vector->memory[0];
+	vector->memory[0] = NULL;
+	vector->length--;
+	if (vector->length > 0)
+		ft_memmove(vector->memory, vector->memory + 1, SIZEOF * vector->length);
+	return (result);
 }

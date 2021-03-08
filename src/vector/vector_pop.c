@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_pop.c                                          :+:      :+:    :+:   */
+/*   vector_pop.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 14:14:10 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/06 22:32:37 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 16:41:47 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft2/base.h"
+#include "libft2/vector.h"
 
-long long	arr_pop(t_array *arr)
+void		*vector_pop(t_vector *vector)
 {
-	long long	res;
+	void	*result;
 
-	if (!arr || arr->length == 0)
-		return (0);
-	res = arr->field[arr->length - 1];
-	arr->field[arr->length - 1] = 0;
-	arr->length--;
-	return (res);
+	if (vector_is_empty(vector))
+		return (NULL);
+	result = vector_last(vector);
+	vector->memory[vector->length - 1] = NULL;
+	vector->length--;
+	return (result);
 }

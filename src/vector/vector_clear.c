@@ -6,16 +6,16 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 03:12:58 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 19:21:10 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/08 16:45:31 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft2/vector.h"
 
-void	arr_clear(t_array *arr)
+void	vector_clear(t_vector *vector)
 {
-	if (!arr || arr->length == 0)
+	if (vector_is_empty(vector))
 		return ;
-	ft_bzero(arr->field, arr->length * sizeof(long long));
-	arr->length = 0;
+	ft_bzero(vector->memory, SIZEOF * vector->length);
+	vector->length = 0;
 }
