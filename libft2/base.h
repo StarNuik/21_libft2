@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:09:57 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/07 19:29:51 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/13 14:13:18 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ void				ft_swap(int *a, int *b);
 void				ft_swapd(double *a, double *b);
 void				ft_swapf(float *a, float *b);
 int					ft_absi(int number);
+char				*ft_readfile(char *path);
 
 #endif
