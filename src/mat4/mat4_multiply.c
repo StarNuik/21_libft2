@@ -6,7 +6,7 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 10:00:15 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/08 17:30:06 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/14 03:03:44 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static float	count_elem(const float *a, const float *b,
 {
 	float		res;
 
-	res = a[y + 0] * b[0 + x];
-	res += a[y + 1] * b[4 + x];
-	res += a[y + 2] * b[8 + x];
-	res += a[y + 3] * b[12 + x];
+	res = a[y * 4 + 0] * b[0 + x];
+	res += a[y * 4 + 1] * b[4 + x];
+	res += a[y * 4 + 2] * b[8 + x];
+	res += a[y * 4 + 3] * b[12 + x];
 	return (res);
 }
 
