@@ -6,14 +6,14 @@
 /*   By: sbosmer <sbosmer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 10:00:15 by sbosmer           #+#    #+#             */
-/*   Updated: 2021/03/14 03:03:44 by sbosmer          ###   ########.fr       */
+/*   Updated: 2021/03/14 03:10:50 by sbosmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft2/linal.h"
 
 static float	count_elem(const float *a, const float *b,
-	const int x, const int y)
+	const int y, const int x)
 {
 	float		res;
 
